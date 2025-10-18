@@ -1,6 +1,8 @@
 # Streamoid Backend Take-Home
 
 Backend service for CSV product upload and search.
+I used multer for reading csv file and csv-parser for parsing csv file.
+
 
 ## Setup
 
