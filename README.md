@@ -26,38 +26,6 @@ PGPORT=5432
 npm start
 ```
 
-## API Endpoints
-
-### POST /upload
-Upload CSV file with products.
-
-### GET /products
-List all products with pagination.
-
-### GET /products/search
-Search products by brand, color, or price range.
-
-## Verify PostgreSQL
-
-- Ensure PostgreSQL service is running (Windows):
-  - PowerShell:
-    ```powershell
-    Get-Service | Where-Object { $_.Name -like "postgresql*" } | Format-Table Name, Status
-    ```
-  - Or open `services.msc` and check a service like `postgresql-x64-...` is Running.
-
-- Using psql (optional):
-  ```powershell
-  # Connect as postgres superuser
-  $env:PGPASSWORD="your_password"; psql -h localhost -U postgres -p 5432 -d postgres
-  ```
-  In psql:
-  ```sql
-  \l
-  CREATE DATABASE streamoid; -- if missing
-  \c streamoid
-  SELECT NOW();
-  ```
 
 ## Start the Server
 
@@ -92,7 +60,7 @@ JEANS-BLU-032,Slim Fit Jeans,DenimWorks,Blue,32,1999,1599,15
   curl "http://localhost:3000/products?page=1&limit=10"
   ```
 
-- GET `/products/search` (filters are optional):
+- GET `/products/search`:
   ```bash
   # by brand
   curl "http://localhost:3000/products/search?brand=StreamThreads"
